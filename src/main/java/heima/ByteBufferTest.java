@@ -16,7 +16,7 @@ public class ByteBufferTest {
         split(source);
     }
 
-    private static void split(ByteBuffer source) {
+    public static void split(ByteBuffer source) {
         source.flip();
         //read
         int oldLimit = source.limit();

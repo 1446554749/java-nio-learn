@@ -21,7 +21,7 @@ public class NonBlockingServer {
         ssc.bind(new InetSocketAddress(8080));
 
         ArrayList<SocketChannel> channels = new ArrayList<>();
-        ByteBuffer buffer = ByteBuffer.allocate(32);
+        ByteBuffer buffer = ByteBuffer.allocate(16);
         while (true) {
             SocketChannel socketChannel = ssc.accept();
             Optional.ofNullable(socketChannel).ifPresent((sc) -> {
@@ -38,7 +38,8 @@ public class NonBlockingServer {
                     int read = channel.read(buffer);
                     if(read>0){
                         buffer.flip();
-                        debugAll(buffer);
+//                        debugAll(buffer);
+                        System.out.println(new String(buffer.array(),0,buffer.limit()));
                         buffer.clear();
                     }
                 } catch (IOException e) {
