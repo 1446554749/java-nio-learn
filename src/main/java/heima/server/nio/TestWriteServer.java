@@ -16,7 +16,7 @@ import java.util.Set;
 @SuppressWarnings({"InfiniteLoopStatement", "DuplicatedCode"})
 @Slf4j
 public class TestWriteServer {
-
+//测试写事件的必要性
     public static void main(String[] args) throws IOException, InterruptedException {
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);
